@@ -19,22 +19,9 @@ export default function Messages() {
   const [foundCount, setFoundCount] = useState(0);
   const [revealedIndices, setRevealedIndices] = useState(new Set());
 
-  useEffect(() => {
-    // Randomize locations with better spacing
-    const shuffled = messageBank.map((text, index) => ({
-      id: index,
-      text,
-      top: Math.floor(Math.random() * 60) + 20, 
-      left: Math.floor(Math.random() * 70) + 15 
-    }));
-    setRandomSecrets(shuffled);
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Create a soft gradient for the garden floor
+  const drawGarden = (ctx, canvas) => {
+    ctx.globalCompositeOperation = 'source-over'; 
+  
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
     gradient.addColorStop(0, '#fff5f7');
     gradient.addColorStop(1, '#ffd1dc');
@@ -48,13 +35,40 @@ export default function Messages() {
         ctx.font = `${Math.random() * 20 + 30}px serif`;
         ctx.save();
         ctx.translate(Math.random() * canvas.width, Math.random() * canvas.height);
-        ctx.rotate(Math.random() * Math.PI); // Random rotation for natural look
+        ctx.rotate(Math.random() * Math.PI); 
         ctx.fillText(f, 0, 0);
         ctx.restore();
     }
-
+   
     ctx.globalCompositeOperation = 'destination-out';
+  };
+
+  useEffect(() => {
+    const shuffled = messageBank.map((text, index) => ({
+      id: index,
+      text,
+      top: Math.floor(Math.random() * 60) + 20, 
+      left: Math.floor(Math.random() * 70) + 15 
+    }));
+    setRandomSecrets(shuffled);
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    drawGarden(ctx, canvas);
   }, []);
+
+  const handleReset = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+   
+    drawGarden(ctx, canvas);
+    
+    setRevealedIndices(new Set());
+    setFoundCount(0);
+  };
 
   const scrub = (e) => {
     if (!isDrawing.current) return;
@@ -65,7 +79,6 @@ export default function Messages() {
     const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
     const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
 
-    // Softer brush edges
     ctx.shadowBlur = 10;
     ctx.shadowColor = "black";
     ctx.beginPath();
@@ -124,13 +137,9 @@ export default function Messages() {
         onTouchMove={scrub}
         className="scratch-canvas"
       />
-
-      <button 
-  className="reset-garden-btn" 
-  onClick={() => window.location.reload()}
->
-  Reset Garden 🌸
-</button>
+      <button className="reset-garden-btn" onClick={handleReset}>
+        Reset Garden 🌸
+      </button>
     </div>
   );
 }
