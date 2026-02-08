@@ -1,8 +1,9 @@
 import React from 'react'
-import sweethearts from '../sweethearts.jpg';
 import {useNavigate} from "react-router-dom";
-import connection from '../connection.jpg';
-import mssg from '../mssg.jpg';
+
+const sweethearts = process.env.PUBLIC_URL + '/img/sweethearts.jpg';
+const connection = process.env.PUBLIC_URL + '/img/connection.jpg';
+const mssg = process.env.PUBLIC_URL + '/img/mssg.jpg';
 
 
 export default function Carousel(props) {
@@ -11,7 +12,7 @@ export default function Carousel(props) {
     navigate('/Connect');
   }
   const gotoSH=()=>{
-    navigate('/sweetheart');
+    navigate('/SweetHeart');
   }
   return (
     <div>

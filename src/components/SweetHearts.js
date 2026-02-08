@@ -3,12 +3,12 @@ import SingleCard from './SingleCard';
 
 
 const cardImages = [
-  { "src": "/img/c1.jpg", matched: false },
-  { "src": "/img/c2.jpg", matched: false},
-  { "src": "/img/c3.jpg", matched: false},
-  { "src": "/img/c4.jpg", matched: false},
-  { "src": "/img/c5.jpg", matched: false},
-  { "src": "/img/c6.jpg", matched: false} 
+  { "src": process.env.PUBLIC_URL + "/img/c1.jpg", matched: false },
+  { "src": process.env.PUBLIC_URL + "/img/c2.jpg", matched: false },
+  { "src": process.env.PUBLIC_URL + "/img/c3.jpg", matched: false },
+  { "src": process.env.PUBLIC_URL + "/img/c4.jpg", matched: false },
+  { "src": process.env.PUBLIC_URL + "/img/c5.jpg", matched: false },
+  { "src": process.env.PUBLIC_URL + "/img/c6.jpg", matched: false } 
 
 ];
 

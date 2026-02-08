@@ -8,7 +8,7 @@ export default function SingleCard({ card, handleChoice, flipped }) {
     <div className="card">
       <div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="card front" />
-        <img className="back" src="/img/sweethearts.jpg" alt="card back" onClick={handleClick} />
+        <img className="back" src={process.env.PUBLIC_URL + "/img/sweethearts.jpg"} alt="card back" onClick={handleClick} />
       </div>
     </div>
   );
