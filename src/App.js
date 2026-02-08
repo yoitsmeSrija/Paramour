@@ -13,7 +13,7 @@ export default function App() {
   const[name, setName]=useState("");
 
   return (
-   <Router basename='/paramour'>
+   <Router basename='/Paramour'>
     <div className="App-container">
       <Routes>
         <Route path="/" element={<Welcome />} />
