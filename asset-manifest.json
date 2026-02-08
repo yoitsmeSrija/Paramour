@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/%20Paramour/static/css/main.d2a853cd.css",
-    "main.js": "/%20Paramour/static/js/main.69b7f16c.js",
+    "main.js": "/%20Paramour/static/js/main.e42ef125.js",
     "static/js/453.ca1f7020.chunk.js": "/%20Paramour/static/js/453.ca1f7020.chunk.js",
     "static/media/mssg.jpg": "/%20Paramour/static/media/mssg.4af7f08a205318cdb173.jpg",
     "static/media/sweethearts.jpg": "/%20Paramour/static/media/sweethearts.6125a6958eee973bb940.jpg",
@@ -9,11 +9,11 @@
     "static/media/connection.jpg": "/%20Paramour/static/media/connection.83dab8eca0cfdfb971d6.jpg",
     "index.html": "/%20Paramour/index.html",
     "main.d2a853cd.css.map": "/%20Paramour/static/css/main.d2a853cd.css.map",
-    "main.69b7f16c.js.map": "/%20Paramour/static/js/main.69b7f16c.js.map",
+    "main.e42ef125.js.map": "/%20Paramour/static/js/main.e42ef125.js.map",
     "453.ca1f7020.chunk.js.map": "/%20Paramour/static/js/453.ca1f7020.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d2a853cd.css",
-    "static/js/main.69b7f16c.js"
+    "static/js/main.e42ef125.js"
   ]
 }
